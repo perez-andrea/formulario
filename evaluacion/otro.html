@@ -1,0 +1,75 @@
+<html>
+<head>
+<style>
+/* Estilo del contenedor */
+.container {
+  position: relative; /* Posición relativa al elemento padre */
+  width: 300px; /* Ancho del contenedor */
+}
+
+/* Estilo del campo de contraseña */
+.password {
+  width: 100%; /* Ancho del campo */
+  padding: 10px; /* Espacio entre el borde y el contenido */
+  border: 1px solid gray; /* Ancho, estilo y color del borde */
+}
+
+/* Estilo del botón */
+.button {
+  position: absolute; /* Posición absoluta al elemento contenedor */
+  top: 0; /* Posición desde la parte superior del contenedor */
+  right: 0; /* Posición desde la parte derecha del contenedor */
+  height: 100%; /* Altura igual a la del campo */
+  width: 40px; /* Ancho del botón */
+  border: none; /* Sin borde */
+  background-color: transparent; /* Sin color de fondo */
+  cursor: pointer; /* Cursor en forma de mano */
+}
+
+/* Estilo del icono */
+.icon {
+  font-family: "Font Awesome 5 Free"; /* Fuente con iconos */
+  font-weight: bold; /* Peso necesario para mostrar los iconos sólidos */
+  font-size: 20px; /* Tamaño del icono */
+  color: gray; /* Color del icono */
+}
+</style>
+</head>
+<body>
+
+<div class="container"> <!-- Contenedor -->
+  <input id="password" class="password" type="password" placeholder="Contraseña"> <!-- Campo de contraseña -->
+  <button id="button" class="button" onclick="togglePassword()"> <!-- Botón -->
+    <span id="icon" class="icon"></span> <!-- Icono -->
+  </button>
+</div>
+
+<script>
+// Función para mostrar u ocultar la contraseña
+function togglePassword() {
+  // Obtener los elementos por su id
+  var password = document.getElementById("password");
+  var button = document.getElementById("button");
+  var icon = document.getElementById("icon");
+  
+  // Comprobar el tipo actual del campo de contraseña
+  if (password.type === "password") {
+    // Cambiar el tipo a "text" para mostrar la contraseña
+    password.type = "text";
+    // Cambiar el icono a uno con una barra diagonal
+    icon.innerHTML = "";
+    // Cambiar el título del botón para indicar la acción
+    button.title = "Ocultar contraseña";
+  } else {
+    // Cambiar el tipo a "password" para ocultar la contraseña
+    password.type = "password";
+    // Cambiar el icono a uno sin barra diagonal
+    icon.innerHTML = "";
+    // Cambiar el título del botón para indicar la acción
+    button.title = "Mostrar contraseña";
+  }
+}
+</script>
+
+</body>
+</html>
